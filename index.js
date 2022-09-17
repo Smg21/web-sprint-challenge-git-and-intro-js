@@ -242,19 +242,25 @@ Use listOfNames to do the following:
 2. Create a new array that is a copy of the parameter array
 3. Loop over the new array and update each index of the array to equal just the artist's name
 🌟 EXAMPLE of return: ["Amedeo Modigliani", "Vasiliy Kandinskiy", "Diego Rivera"....]
+
+artistNames[0]
+
 */
 
-function listOfNames(array) {
-  const tell = array.slice();
-  for(let i = 0; i < tell.length; i++)
-  if (tell[i].id <= 21){
-console.log(tell[i].name);
-  }  
+const artistNames =  ["Amedeo Modigliani", "Vasiliy Kandinskiy", "Diego Rivera"]
+artistNames[0] = "Beyonce"
+console.log('artistNames',artistNames[0])
+
+function listOfNames(array){
+  const tell = [...array];
+  for (let i = 0; i < array.length; i++){
+    tell[i] = tell[i].name;
+}
+return tell;
 }
 
 console.log(listOfNames(artists));
 
-console.log(listOfNames(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -266,9 +272,16 @@ Use removeArtist to do the following:
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+//input: array, number
+//output: array
+//conditions: make copy of array, find artist at index, remove that artist from the copied array, return
+
+function removeArtist(array, number) {
+  const arrayCopy = [...array]
+  arrayCopy.splice(number, 1);
+  return arrayCopy;
 }
+  
 
 
 
@@ -288,8 +301,10 @@ Use addArtist to do the following:
 5. Add the newly created object to the copied array, then return the copied array
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+function addArtist(array, start, deleteCount, name, years, genre, nationality, bio) {
+  const newArtiste = [...array]
+  newArtiste.splice(start, deleteCount, name, years, genre, nationality, bio ,0);
+  return newArtiste;
 }
 
 
